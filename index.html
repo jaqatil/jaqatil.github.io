@@ -1,42 +1,572 @@
 <html>
 <head>
-<title>Мои кошки</title>
-<style>input[type=checkbox]{zoom:2}</style>
+<title>Новый конланг Тил-эу / A new conlang Til-eu</title>
+<meta charset="utf-8">
+<style>
+th{background-color:yellow}
+td#num{color:orange;background-color:black}
+h1#basmala{text-align:right;color:darkgreen}
+tr#v{background-color:pink}
+tr#o2{background-color:lightgreen}
+tr#o1{background-color:skyblue}
+</style>
 </head>
-<body>
-<p>&nbsp;<br><br>
+
+<body bgcolor=lightgrey>
+<h1 id='basmala'>بسم الله الرحمن الرحيم </h1>
+
+<h1 align=center>Язык Тил.эу / The Til.eu Language</h1>
+
+<table border=1 cellspacing=0 align=center>
+<tr><th>Синтаксис и фонотактика
+<tr><td><pre>
+      Текст = Предложение | ТекстПредложение
+Предложение = Имя | <b>Оп<sub>1</sub></b>Предложение | <b>Оп<sub>2</sub></b>ПредложениеПредложение
+
+        Имя = Слово <i>кроме</i> <b>Оп<sub>1</sub></b>,<b>Оп<sub>2</sub></b>
+        <b>Оп<sub>1</sub></b> = <b>ABC</b>
+        <b>Оп<sub>2</sub></b> = <b>B</b> | <b>AC</b>
+      Слово = <i>первая буква</i> <b>P</b>, <i>последняя</i> <b>Q</b>, <i>без</i> <b>QP</b>
+      
+          <b>P</b> = <b>A</b> | <b>B</b>
+          <b>Q</b> = <b>B</b> | <b>C</b>
+          
+          <b>A</b> = б ф х с т
+          <b>B</b> = а и у .
+          <b>C</b> = л н р
+          <b>X</b> = э о
+</pre>
+
+<tr><th>Syntax and phonotactics
+<tr><td><pre>
+       Text = Sentence | TextSentence
+   Sentence = Noun | <b>Op<sub>1</sub></b>Sentence | <b>Op<sub>2</sub></b>SentenceSentence
+
+       Noun = Word <i>except</i> <b>Op<sub>1</sub></b>,<b>Op<sub>2</sub></b>
+        <b>Op<sub>1</sub></b> = <b>ABC</b>
+        <b>Op<sub>2</sub></b> = <b>B</b> | <b>AC</b>
+       Word = <i>the first letter</i> <b>P</b>, <i>the last</i> <b>Q</b>, <i>without</i> <b>QP</b>
+      
+          <b>P</b> = <b>A</b> | <b>B</b>
+          <b>Q</b> = <b>B</b> | <b>C</b>
+          
+          <b>A</b> = b f h s t
+          <b>B</b> = a i u .
+          <b>C</b> = l n r
+          <b>X</b> = e o
+</pre>
+</table>
+
+<div align=center><br><br>
+<button onclick="random()" style="font-size:120%"> &nbsp; Случайный текст | Random text &nbsp; </button>&nbsp;
+<textarea rows="1" cols="4" id="random" wrap="hard" style="font-size:200%">100</textarea><br><br>
+<p><b>Проверка синтаксиса | Syntax check</b>
+<p><textarea rows="10" cols="50" id="in" wrap="hard"></textarea>
+<p>
+<button onclick="retlew()" style="font-size:120%"> &nbsp; Проверь | Check &nbsp; </button>
+<p><b>Результат | Result</b>
+<p><textarea rows="10" cols="50" id="out" wrap="hard"></textarea>
+</div>
+
+<p align=center><a href="#z" style="text-decoration:none;font-size:200%">&darr;</a>
+<br><br>
+
+
+
+<table id="bla" border=1 cellspacing=0>
+<tr><td id="num" onclick="numerateRows()">#
+<th id=0 onclick="sortTable(this.id)" style="font-size:150%;font-family:cursive">&nbsp;Til.eu&nbsp;
+<th id=1 onclick="sortTable(this.id)">Русский<br>English
+<th id=2 onclick="sortTable(this.id)">Пример<br>Example
+<th id=3 onclick="sortTable(this.id)">Перевод<br>Translation
+
+<tr><td id="num">
+<td>al<td>я<br>I, me<td>.alal<td>Я — это я<br>I am I
+
+<tr id=o2><td id="num">
+<td>.<td><i>связка<br>copula</i><td>.alsa<td>Я хорош<br>I am good
+
+<tr><td id="num">
+<td>sa<td>хороший<br>good<td>.alu__sa<td>Я __ хорошее<br>I __ good things
+
+<tr id=o2><td id="num">
+<td>u<td><i>оператор причастия<br>participle operator</i><td>.alusasa<td>Я люблю хорошее<br>I love good things
+
+<tr id=v><td id="num">
+<td>sa<td>любить<br>to love<td>.alusaur<td>Я люблю тебя<br>I love you
+
+<tr><td id="num">
+<td>ur<td>ты<br>you<td>.uril<td>Ты &ndash; человек<br>You are a man
+
+<tr><td id="num">
+<td>il*<td>человек<br>man, person<td>asail / ailsa<td>хороший человек<br>a good man
+
+<tr id=o2><td id="num">
+<td>a<td><i>оператор "...который является..."<br>operator "...who is..."</u></i><td>ailusasinil / ausasinilil<td>человек, который любит женщин<br>a man who loves women
+
+<tr id=o1><td id="num">
+<td>sin<td><i>приставка женского рода<br>feminine prefix</i><td>ialsinil<td>моя жена<br>my wife
+
+<tr id=o2><td id="num">
+<td>i<td><i>определительный оператор<br>attributive operator</i><td>iiursinilfu<td>голова твоей жены<br>your wife's head
+
+<tr><td id="num">
+<td>fu<td>голова<br>head<td>.alualfu<td>Я имею голову<br>I have a head
+
+<tr id=v><td id="num">
+<td>al<td>иметь<br>to have<td>.aanilualasafu<td>Этот человек имеет хорошую голову<br>This man has a good head
+
+<tr><td id="num">
+<td>an*<td>это<br>this<td>.alufuan<td>Я знаю это<br>I know this
+
+<tr id=v><td id="num">
+<td>fu<td>знать<br>to know<td>.urufu.alturusaur<td>Ты знаешь, что я не люблю тебя<br>You know that I don't love you
+
+<tr id=o1><td id="num">
+<td>tur<td>не<br>not<td>.al.ilturusatlei<td>Я — тот, кого не любят люди<br>I am the one whom people don't love
+
+<tr id><td id="num">
+<td>tlei*<td>тот, что<br>the one that<td>a.tleiusainil / ail.tleiusain = ausainil / ailusain<td>человек, который любит его<br>the man who loves him
+
+<tr><td id="num">
+<td>in*<td>он, она, оно<br>he, she, it<td>.aniinun<td>Это его<br>This is his
+
+<tr><td id="num">
+<td>un<td>что-то, кто-то<br>something, someone<td>.aluunturun<td>Я ничего не делаю<br>I do nothing
+
+<tr id=v><td id="num">
+<td>un<td>делать<br>to do, to make<td>b.luunun<td>Делай что-нибудь!<br>Do something!
+
+<tr id=o1><td id="num">
+<td>b.l<td><i>побудительная приставка</i> будь!<br><i>imperative prefix</i> be!<td>.tlurinb.luunan<td>Ты и он сделайте это!<br>You and he do this!
+
+<tr id=o2><td id="num">
+<td>tl<td>и<br>and<td>tlbunaltlbunurbunin<td>мы и вы, и они<br>we and you and they
+
+<tr id=o1><td id="num">
+<td>bun<td><i>приставка множественного числа<br>plural prefix</i><td>.bunalusafanil<td>Мы любим мужчин<br>We love men
+
+<tr id=o1><td id="num">
+<td>fan<td><i>приставка мужского рода<br>masculine prefix</i><td>.ibunurfanbain<td>Ваш отец &ndash; он<br>Your father is he
+
+<tr><td id="num">
+<td>ba<td>родитель<br>parent<td>.urhirufuiinsinba<td>Ты знаешь его мать?<br>Do you know his mother?
+
+<tr id=o1><td id="num">
+<td>hir<td><i>вопросительная частица<br>interrogative particle</i><td>.alturufu.inhiruurun<td>Я не знаю, взял ли он что-нибудь. <br>I don't know if he took anything.
+
+<tr id=v><td id="num">
+<td>ur<td>брать, взять<br>to take<td>.uruurar<td>Что ты взял?<br>What did you take?
+
+<tr><td id="num">
+<td>ar*<td>что, кто<br>what, who<td>.aanbiaarbi<td>Сегодня какой день?<br>Today is what day?
+
+<tr id><td id="num">
+<td>bi*<td>день<br>day<td>.aanbibalbi<td>Сегодня понедельник<br>Today is Monday
+
+<tr id=o1><td id="num">
+<td>bal<td>1<td>.alualbalbalbunton<td>Я имею 11 ₽<br>I have $11
+
+<tr><td id="num">
+<td>ton<td>деньги<br>money<td>.inualfinbalfinbunton<td>У него 212 ₽<br>He has $212
+
+<tr id=o1><td id="num">
+<td>fin<td>2<td>.anialbalfinhurbunton<td>Это мои 123 ₽<br>These are my $123
+
+<tr id=o1><td id="num">
+<td>hur<td>3<td>.anutonhurfinbalun<td>Это стоит 321<br>This costs 321
+
+<tr id=v><td id="num">
+<td>ton<td>стоить<br>to cost<td>.anbrurutonar<td>Чего это тебе стоило?<br>What did this cost you?
+
+<tr id=o2><td id="num">
+<td>br<td>к, чтобы<br>to, in order to<td>.inbr.inutsuuruunan<td>Он сделал это, чтобы увидеть тебя<br>He did this in order to see you
+
+<tr id=v><td id="num">
+<td>tsu*<td>видеть<br>to see<td>.unturutsuiinbei<td>Её лицо не видно<br>Her face is not seen
+
+<tr><td id="num">
+<td>bei<td>лицо<br>face<td>.iasabeisinilubeial<td>Хорошеликая женщина встретила меня<br>The good-faced woman met me
+
+<tr id=v><td id="num">
+<td>bei<td>встречать<br>to meet <td>.blaanbialubeiin<td>Сегодня я встречу его<br>Today I will meet him
+
+<tr id=o2><td id="num">
+<td>bl<td>в<br>in<td>bliurfinirfanil<td>мужчина справа от тебя<br>the man on your right
+
+<tr><td id="num">
+<td>ir*<td>место<br>place<td>.urb.lblials.lirun<td>Встань слева от меня!<br>Stand to the left of me!
+
+<tr id=o1><td id="num">
+<td>s.l<td>4<td>.bls.lseuunsa<td>В апреле хорошо<br>In April it's good 
+
+<tr><td id="num">
+<td>seu*<td>месяц, луна<br>month, moon<td>.anblsnhurseufinseuun<td>Это было в марте или феврале<br>It was in March or February
+
+<tr id=o2><td id="num">
+<td>sn<td>или<br>or<td>.bunursnhirs.lunhirtanun<td>Вас четверо или пятеро?<br>Are there four or five of you?
+
+<tr id=o1><td id="num">
+<td>tan<td>5<td>tanf.rhurhurtanbunil<td>5335 человек<br>5335 people
+
+<tr id=o1><td id="num">
+<td>f.r<td>1000<td>.intraluurf.rbunton<td>Он у меня взял 1000 ₽<br>He took from me $1000
+
+<tr id=o2><td id="num">
+<td>tr<td>от, потому что<br>from, because<td>..urbalhaluntr.ursaun<td>Ты первый, потому что ты хороший<br>You are the first because you are good
+
+<tr id=o1><td id="num">
+<td>hal<td><i>образователь порядковых числительных<br>ordinal numeral former</i><td>.tanbiitientanhalbi<td>Пятница — пятый день недели<br>Friday is the fifth day of the week
+
+<tr><td id="num">
+<td>tien*<td>неделя<br>week<td>.inuhoifins.lbuntien<td>Ему 24 недели<br>Hi is 24 weeks old
+
+<tr id=v><td id="num">
+<td>hoi<td>быть какого-то возраста<br>to be of an age<td>.iursulhoiar<td>Каков твой возраст?<br>What is your age?
+
+<tr id=o1><td id="num">
+<td>sul<td><b>sul__ = .unu__tlei</b><td>.urialsulba<td>Ты — моя дочь<br>You are my daughter
+
+<tr id=v><td id="num">
+<td>ba<td>рожать<br>to give birth<td>.inubabirbunsulba<td>Она родила 6 детей<br>She gave birth to 6 children
+
+<tr id=o1><td id="num">
+<td>bir<td>6<td>.finbunhuruntlturfulunbirun<td>2жды 3 — это не 7, а 6<br>2 times 3 is not 7, but 6 
+
+<tr id=o1><td id="num">
+<td>ful<td>7<td>.aluhoihurfulbunhoi<td>Мне 37 лет<br>I am 37 years old
+
+<tr><td id="num">
+<td>hoi<td>год<br>year<td>.anblaulhoiun<td>Это было в том году<br>It was that year
+
+<tr id><td id="num">
+<td>ul*<td>тот, то<br>that<td>.aultasa<td>Тогда было хорошо<br>Then it was good
+
+<tr id><td id="num">
+<td>ta*<td>время<br>time<td>.aantabalh.nta<td>Сейчас 18 часов<br>Now it's 18 o'clock
+
+<tr id=o1><td id="num">
+<td>h.n<td>8<td>.int.nuhoih.nh.nun<td>Ему уже 88<br>He is already 88
+
+<tr id=o1><td id="num">
+<td>t.n<td>уже<br>already<td>.barunt.nblaanirun<td>Все уже здесь<br>Everybody is already here
+
+<tr id=o1><td id="num">
+<td>bar<td>все<br>all<td>.blsarbunhoitlbartabarirsa<td>В 9 лет всегда и везде хорошо<br>At the age of nine, always and everywhere is good
+
+<tr id=o1><td id="num">
+<td>sar<td>9<td><td><br>
+
+<tr id=o1><td id="num">
+<td>til<td>0<td><td><br>
+</table>
+
+<tr id=n><td id="num">
+<td><td><br><td><td><br>
+
+<tr id=n><td id="num">
+<td><td><br><td><td><br>
+<p id="z">
+
+<table border=1>
+<!--for i=0,59 do print('<tr><th>'..a[i%5+1]..b[i%4+1]..c[i%3+1].."<td><td>")end-->
+<tr><th>bal<td colspan=2 align=center>1
+<tr><th>fin<td colspan=2 align=center>2
+<tr><th>hur<td colspan=2 align=center>3
+<tr><th>s.l<td colspan=2 align=center>4
+<tr><th>tan<td colspan=2 align=center>5
+<tr><th>bir<td colspan=2 align=center>6
+<tr><th>ful<td colspan=2 align=center>7
+<tr><th>h.n<td colspan=2 align=center>8
+<tr><th>sar<td colspan=2 align=center>9
+<tr><th>til<td colspan=2 align=center>0
+<tr><th>bun<td><i>приставка множественного числа</i><td><i>plural prefix</i>
+<tr><th>f.r<td colspan=2 align=center>1000
+<tr><th>hal<td><i>образователь порядковых числительных</i><td><i>ordinal numeral former</i>
+<tr><th>sin<td><i>приставка женского рода</i><td><i>feminine prefix</i>
+<tr><th>tur<td>не<td>not
+<tr><th>b.l<td><i>побудительная приставка</i><td><i>imperative prefix</i>
+<tr><th>fan<td><i>приставка мужского рода</i><td><i>masculine prefix</i>
+<tr><th>hir<td><i>вопросительная частица</i><td><i>interrogative particle</i>
+<tr><th>sul<td align=center colspan=2><b>sul__ = .unu__tlei</b>
+<tr><th>t.n<td>уже<td>already
+<tr><th>bar<td>все<td>all
+<tr><th>fil<td><td>
+<tr><th>hun<td><td>
+<tr><th>s.r<td><td>
+<tr><th>tal<td><td>
+<tr><th>bin<td><td>
+<tr><th>fur<td><td>
+<tr><th>h.l<td><td>
+<tr><th>san<td><td>
+<tr><th>tir<td><td>
+<tr><th>bul<td><td>
+<tr><th>f.n<td><td>
+<tr><th>har<td><td>
+<tr><th>sil<td><td>
+<tr><th>tun<td><td>
+<tr><th>b.r<td><td>
+<tr><th>fal<td><td>
+<tr><th>hin<td><td>
+<tr><th>sur<td><td>
+<tr><th>t.l<td><td>
+<tr><th>ban<td><td>
+<tr><th>fir<td><td>
+<tr><th>hul<td><td>
+<tr><th>s.n<td><td>
+<tr><th>tar<td><td>
+<tr><th>bil<td><td>
+<tr><th>fun<td><td>
+<tr><th>h.r<td><td>
+<tr><th>sal<td><td>
+<tr><th>tin<td><td>
+<tr><th>bur<td><td>
+<tr><th>f.l<td><td>
+<tr><th>han<td><td>
+<tr><th>sir<td><td>
+<tr><th>tul<td><td>
+<tr><th>b.n<td><td>
+<tr><th>far<td><td>
+<tr><th>hil<td><td>
+<tr><th>sun<td><td>
+<tr><th>t.r<td><td>
+</table>
+
+
+<table border=1 cellspacing=0>
+<tr><th style="background-color:orange">Til.eu<th style="background-color:orange">Русский<th style="background-color:orange">English
+<tr><th>duum<td>ничего, никто<td>nothing, nobody
+<tr><th>haal<td>мы<td>we
+<tr><th>haam<td>вы<td>you (<i>plural</i>)
+<tr><th>haas<td>они<td>they
+<tr><th>vaas<td>он<td>he
+<tr><th>nuas<td>она<td>she
+<tr><th>vaaf<td>мужчина, муж<td>man, husband
+<tr><th>nuaf<td>женщина, жена<td>woman, wife
+<tr><th>vaum<td>отец<td>father
+<tr><th>nuum<td>мать<td>mother
+<tr><th>iiluf<td>сегодня<td>today
+<tr><th>grfii<td>завтра<td>tomorrow
+<tr><th>slfii<td>вчера<td>yesterday
+<tr><th>nifii<td>тот день<td>that day
+<tr><th>bauf<td>понедельник<td>Monday
+<tr><th>hiuf<td>вторник<td>Tuesday
+<tr><th>ruuf<td>среда<td>Wednesday
+<tr><th>zauf<td>четверг<td>Thursday
+<tr><th>niuf<td>пятница<td>Fridy
+<tr><th>vuuf<td>суббота<td>Saturday
+<tr><th>rauf<td>воскресенье<td>Sunday
+<tr><th>leba<td>мальчик, сын<td>boy, son
+<tr><th>lese<td>девочка, дочь<td>girl, daughter
+<tr><th>tebate<td colspan=2 align=center>1000
+<tr><th>tesete<td colspan=2 align=center>1000000
+<tr><th>tegote<td colspan=2 align=center>10<sup>9</sup>
+<tr><th>iablh<td>встать<td>to stand
+<tr><th>iablboh<td>стоять<td>to be standing
+<tr><th>.abli<td>здесь<td>here
+<tr><th>nibli<td>там<td>there
+<tr><th>.atri<td>сейчас<td>now
+<tr><th>nitri<td>тогда<td>then
+<tr><th>badel<td>январь<td>January
+<tr><th>hidel<td>февраль<td>February
+<tr><th>rudel<td>март<td>March
+<tr><th>zadel<td>апрель<td>April
+<tr><th>nidel<td>май<td>May
+<tr><th>vudel<td>июнь<td>June
+<tr><th>radel<td>июль<td>July
+<tr><th>bidel<td>август<td>August
+<tr><th>hudel<td>сентябрь<td>September
+<tr><th>badudel<td>октябрь<td>October
+<tr><th>babadel<td>ноябрь<td>November
+<tr><th>bahidel<td>декабрь<td>December
+<tr><th>globa<td>друг<td>boyfriend
+<tr><th>glose<td>подруга<td>girlfriend
+<tr><th>ieba<td>первый<td>first
+<tr><th>iese<td>второй<td>second
+<tr><th>iego<td>третий<td>third
+<tr><th>hefiiba<td>утро<td>morning
+<tr><th>hefiise<td>день<td>afternoon
+<tr><th>hefiigo<td>вечер<td>evening
+<tr><th>hefiita<td>ночь<td>night
+<tr><th>trba<td>час<td>hour
+<tr><th>trse<td>минута<td>minute
+<tr><th>trgo<td>секунда<td>second
+<tr><th>ghaba<td>член<td>penis
+<tr><th>ghase<td>вагина<td>vagina
+<tr><th>hestoi<td>неделя<td>week
+<tr><th>hebreiba<td>весна<td>spring
+<tr><th>hebreise<td>лето<td>summer
+<tr><th>hebreigo<td>осень<td>autumn
+<tr><th>hebreita<td>зима<td>winter
+<tr><th>heba<td>весь<td>whole, all
+<tr><th>hese<td>половина<td>a half
+<tr><th>hego<td>треть<td>a third
+<tr><th>loba<td>имя<td>name
+<tr><th>.oboh<td>хотеть<td>to want
+<tr><th>ian.oh<td>садиться<td>to take a seat
+<tr><th>ian.oboh<td>сидеть<td>to sit
+<tr><th>iafheh<td>ложиться<td>to lie down
+<tr><th>iafheboh<td>лежать<td>to lie
+<tr><th>guba<td>дерево<td>tree
+<tr><th>guse<td>цветок<td>flower
+<tr><th>biba<td>собака<td>dog
+<tr><th>bise<td>кошка<td>cat
+
+<tr><th><td><td>
+<tr><th><td><td>
+<tr><th><td><td>
+<tr><th><td><td>
+</table>
+
+<p><img src=count.jpg>
+<p><table border=1>
+<tr><th>Символы<br>Symbols<th>Слова<br>Words<th>Предложения<br>Sentences<th>Тексты<br>Texts
+<tr><th>1<td>4<td>0<td>0
+<tr><th>2<td>47<td>32<td>32
+<tr><th>3<td>442<td>382<td>382
+<tr><th>4<td>4091<td>4091<td>5115
+<tr><th>5<td>37816<td>43832<td>68280
+<tr><th>6<td>349523<td>485595<td>926111
+<tr><th>7<td>3230518<td>5473690<td>12577966
+<tr><th>8<td>29858519<td>62327747<td>171254588
+<tr><th>9<td>275971564<td>719276880<td>2339735724
+<tr><th>10<td>2550706007<td>8418434198<td>32054188996
+<tr><th>11<td>23575259122<td>99775116330<td>440096078836
+</table>
+
 <table>
 <tr>
-<td><input type=checkbox><label>Василиса</label>
-<td><input type=checkbox><label>Пчёлка</label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox><label>Котопёс</label>
-<td><input type=checkbox checked><label><s>Здапи</s></label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox><label>Белок</label>
-<td><input type=checkbox><label>Дочка Ниточки</label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox><label>Белочка</label>
-<td><input type=checkbox><label>Ёмшак</label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox><label>Фроська</label>
-<td><input type=checkbox><label>Муса</label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox><label>Кристель</label>
-<td><input type=checkbox><label>Дензел</label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox><label>Мурзик</label>
-<td><input type=checkbox><label>Котопсиха</label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox><label>Белоснежка</label>
-<td><input type=checkbox><label>Джеймс</label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox><label>Касуми</label>
-<td><input type=checkbox><label>Мицуха</label>
-<tr><td>&nbsp;<tr>
-<td><input type=checkbox>
-<label>Рузиль</label>
-<td><input type=checkbox checked><label><s>Сатоши</s></label>
+<td>
+<table border=1>
+<tr><th> <th>a <th>i <th>u <th>.
+<tr><th>b<td>  <td>bi<td>  <td>
+<tr><th>f<td>  <td>  <td>  <td>
+<tr><th>h<td>  <td>  <td>  <td>
+<tr><th>s<td>sa<td>  <td>  <td>
+<tr><th>t<td>  <td>  <td>  <td>
 </table>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<td>
+<table border=1>
+<tr><th> <th>l <th>n <th>r
+<tr><th>a<td>al<td>an<td>ar
+<tr><th>i<td>il<td>in<td>ir
+<tr><th>u<td>ul<td>un<td>ur
+<tr><th>.<td>  <td>  <td>
+</table>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<td>
+<table border=1>
+<tr><th> <th>l <th>n <th>r
+<tr><th>b<td>bl<td>  <td>br
+<tr><th>f<td>  <td>  <td>
+<tr><th>h<td>  <td>  <td>
+<tr><th>s<td>  <td>sn<td>
+<tr><th>t<td>  <td>  <td>tr
+</table>
+</table>
+
+<script>
+
+rows=document.getElementById("bla").rows
+
+function numerateRows()
+{
+	for(i=1;i<rows.length;i++)
+	{
+		rows[i].getElementsByTagName("TD")[0].innerHTML=i
+	}
+}
+
+function sortTable(k)
+{
+	switching=true
+	while(switching)
+	{
+		switching=false
+		for(i=1;i<rows.length-1;i++)
+		{
+			shouldSwitch=false
+			x=rows[i].getElementsByTagName("TD")[+k+1]
+			y=rows[i+1].getElementsByTagName("TD")[+k+1]
+			if(x.innerHTML.toLowerCase()>y.innerHTML.toLowerCase())
+			{
+				shouldSwitch = true
+				break
+			}
+		}
+		if(shouldSwitch)
+		{
+			rows[i].parentNode.insertBefore(rows[i+1],rows[i])
+			switching = true
+		}
+	}
+}
+
+
+function parser(s)
+{
+	s=s.replace(/[^bfhstaiu.lnreo]/gi,'')
+	s=s.replace(/^[lnreo]+|[bfhsteo]+$/gi,'')
+	
+	b=s.replace(/[^bfhsteo](?![lnreo])/g,'$& ').split(' ').reverse()
+	
+	a=[]
+	
+	for(let w of b)
+	{
+		if(w.match(/^[bfhst][aiu.][lnr]$/))
+		{
+			w1=a.pop()
+			if(w1===undefined)return undefined
+			a.push(w1+w+' ')
+			continue
+		}
+		
+		if(w.match(/^([aiu.]|[bfhst][lnr])$/))
+		{
+			w2=a.pop()
+			w1=a.pop()
+			if(w2===undefined || w1===undefined)return undefined
+			a.push(w1+w2+w+' ')
+			continue
+		}
+		
+		a.push(w+' ')
+	}
+	a=a.map(q=>q.split(' ').reverse().join(" ").trim()).reverse()
+	return a.join('\n\n').trim()
+}
+
+function retlew()
+{
+	s=document.getElementById("in").value
+	document.getElementById("out").value=parser(s)
+}
+function random()
+{
+function rs(length)
+{
+    let result = '';
+    const characters = 'bthfsniu.lraeo';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length)
+    {
+      c=characters.charAt(Math.floor(Math.random() * charactersLength));
+      if(counter==0&&c.match(/[lnreo]/)||counter==length-1&&c.match(/[bfhsteo]/)){continue}
+      result +=c
+      
+      counter += 1;
+    }
+    return result;
+}
+s=document.getElementById("random").value
+while(1){
+t=rs(+s)
+if(parser(t)){document.getElementById("in").value=t;return}}
+}
+</script>
+
 </body>
 </html>

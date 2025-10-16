@@ -221,87 +221,129 @@ tr#o{background-color:skyblue}
 
 </table>
 
-<tr><td id="num">
-<td><td><br><td><td><br>
+
+<div id=z align=center><br><br>
+<button onclick="random()" style="font-size:120%"> &nbsp; Случайный текст | Random text &nbsp; </button>&nbsp;
+<textarea rows="1" cols="4" id="random" wrap="hard" style="font-size:200%">1000</textarea><br><br>
+<p><b>Проверка синтаксиса | Syntax check</b>
+<p><textarea rows="10" cols="50" id="in" wrap="hard"></textarea>
+<p>
+<button onclick="retlew()" style="font-size:120%"> &nbsp; Проверь | Check &nbsp; </button>
+<p><b>Результат | Result</b>
+<p><textarea rows="10" cols="50" id="out" wrap="hard"></textarea>
+</div>
+
+
+<p><table border=1 align=center>
+<tr><th>Символы<br>Symbols<th>Слова<br>Words<th>Предложения<br>Sentences<th>Тексты<br>Texts
+<tr><th>1<td>4<td>0<td>0
+<tr><th>2<td>47<td>47<td>47
+<tr><th>3<td>442<td>442<td>442
+<tr><th>4<td>4091<td>4091<td>6300
+<tr><th>5<td>37816<td>46652<td>88200
+<tr><th>6<td>349523<td>515715<td>1199456
+<tr><th>7<td>3230518<td>5550190<td>16481056
+<tr><th>8<td>29858519<td>61865447<td>227856368
+<tr><th>9<td>275971564<td>701787000<td>3150094944
+<tr><th>10<td>2550706007<td>7987972343<td>43613393776
+<tr><th>11<td>23575259122<td>92046095970<td>604974870976
+</table>
+<p><img src=counting.jpg>
+
+<script>
+
+rows=document.getElementById("bla").rows
+
+function numerateRows()
+{
+	for(i=1;i<rows.length;i++)
+	{
+		rows[i].getElementsByTagName("TD")[0].innerHTML=i
+	}
+}
+
+function sortTable(k)
+{
+	switching=true
+	while(switching)
+	{
+		switching=false
+		for(i=1;i<rows.length-1;i++)
+		{
+			shouldSwitch=false
+			x=rows[i].getElementsByTagName("TD")[+k+1]
+			y=rows[i+1].getElementsByTagName("TD")[+k+1]
+			if(x.innerHTML.toLowerCase()>y.innerHTML.toLowerCase())
+			{
+				shouldSwitch = true
+				break
+			}
+		}
+		if(shouldSwitch)
+		{
+			rows[i].parentNode.insertBefore(rows[i+1],rows[i])
+			switching = true
+		}
+	}
+}
+
+function parser(s)
+{
+	s=s.replace(/[^bfhstaiu.lnreo]/gi,'')
+	s=s.replace(/^[lnreo]+|[bfhsteo]+$/gi,'')
+	
+	b=s.replace(/[^bfhsteo](?![lnreo])/g,'$& ').split(' ')
+	
+	a=[]
+	
+	for(let w of b)
+	{
+		if(w.match(/^[aiu.]$/))
+		{
+			w2=a.pop()
+			w1=a.pop()
+			if(w2===undefined || w1===undefined)return undefined
+			a.push(w1+w2+w+' ')
+			continue
+		}
+		
+		a.push(w+' ')
+	}
+	return a.join('\n\n')
+}
+
+function retlew()
+{
+	s=document.getElementById("in").value
+	document.getElementById("out").value=parser(s)
+}
+function random()
+{
+function rs(length)
+{
+    let result = '';
+    const characters = 'bthfsniu.lraeo';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length)
+    {
+      c=characters.charAt(Math.floor(Math.random() * charactersLength));
+      if(counter==0&&c.match(/[lnreo]/)||counter==length-1&&c.match(/[bfhsteo]/)){continue}
+      result +=c
       
-<tr id=v><td id="num">
-<td><td><br><td><td><br>
+      counter += 1;
+    }
+    return result;
+}
+s=document.getElementById("random").value
+while(1){
+t=rs(+s)
+if(parser(t)){document.getElementById("in").value=t;return}}
+}
+</script>
 
-bal
-fin
-hur
-sl
-tan
-bir
-ful
-hn
-sar
-til
-bun
-fr      
-      
-
-
-
-
-<!--
-
-<tr ><td id="num">
-<td>s.l<td>4<td>unseus.lblsa.<td>В апреле хорошо<br>In April it's good 
-
-<tr><td id="num">
-<td>seu*<td>месяц, луна<br>month, moon<td>anunseuhurseufinsnbl.<td>Это было в марте или феврале<br>It was in March or February
-
-<tr id=o2><td id="num">
-<td>sn<td>или<br>or<td>bubununs.lhiruntanhirsn.<td>Вас четверо или пятеро?<br>Are there four or five of you?
-
-<tr ><td id="num">
-<td>tan<td>5<td>albuntanf.rhurhurtan<td>5335 человек<br>5335 people
-
-<tr ><td id="num">
-<td>f.r<td>1000<td>sibuuhatrtonbunf.r.<td>Он у меня взял 1000 ₽<br>He took from me $1000
-
-<tr id=o2><td id="num">
-<td>tr<td>от, потому что<br>from, because<td>buunbinbalbusa.tr.<td>Ты первый, потому что ты хороший<br>You are the first because you are good
-
-<tr ><td id="num">
-<td>bin<td><i>образователь порядковых числительных; определенный артикль<br>ordinal numeral former</i>; the<td>bitantienbiibintan.<td>Пятница — пятый день недели<br>Friday is the fifth day of the week
-
-<tr><td id="num">
-<td>tien*<td>неделя<br>week<td>sihoiutienbunfins.l.<td>Ему 24 недели<br>Hi is 24 weeks old
-
-<tr id=v><td id="num">
-<td>hoi<td>быть какого-то возраста<br>to be of an age<td>busasulihoiuar.<td>Каков возраст твоей любовницы?<br>What is your lover's age?
-
-<tr ><td id="num">
-<td>sul<td><b>__sul = tlei__uun.</b><td>batonbasulihabr.<td>Родители — источник денег для меня<br>The parents are the source of money for me
-
-<tr id=v><td id="num">
-<td>ba<td>рожать<br>to give birth<td>sibauunbaubunbir.<td>Она родила 6 детей<br>She gave birth to 6 children
-
-<tr ><td id="num">
-<td>bir<td>6<td>unhurbunfinunfulturunbirtl.<td>2жды 3 — это не 7, а 6<br>2 times 3 is not 7, but 6 
-
-<tr ><td id="num">
-<td>ful<td>7<td>hahoiuhoibunhurful.<td>Мне 37 лет<br>I am 37 years old
-
-<tr><td id="num">
-<td>hoi<td>год<br>year<td>anunulhoiabl.<td>Это было в том году<br>It was that year
-
-<tr id><td id="num">
-<td>ul*<td>тот, то<br>that<td>ultaasa.<td>Тогда было хорошо<br>Then it was good
-
-<tr id><td id="num">
-<td>ta<td>время<br>time<td>antaatabalh.n.<td>Сейчас 18 часов<br>Now it's 18 o'clock
-
-<tr ><td id="num">
-<td>h.n<td>8<td>sihoiuunh.nh.nb.l.<td>Ему уже 88<br>He is already 88
-
-<tr ><td id="num">
-<td>b.l<td>уже<br>already<td>unhalunanirablb.l.<td>Все уже здесь<br>Everybody is already here
-
-<tr ><td id="num">
-<td>hal<td>все<br>all<td>tahalirhaltlhoibunsarblsa.<td>В 9 лет всегда и везде хорошо<br>At the age of nine, always and everywhere is good
+</body>
+</html>br>At the age of nine, always and everywhere is good
 
 <tr ><td id="num">
 <td>sar<td>9<td>hatasarbltaubu.<td>В 9 часов я жду тебя<br>At 9 o'clock I am waiting for you

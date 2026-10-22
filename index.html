@@ -397,14 +397,26 @@ function shuffleArray(arr) {
 
 <script>
 
-document.addEventListener('click', function(e)
-{
-	if(e.target.tagName==='TD')
-	{
-       	rowNumber = e.target.parentElement.rowIndex;
-       	new Audio(`sound/${rowNumber}.m4a`).play();
-	}
-});
+<audio id="player" preload="auto"></audio>
+
+
+    const player = document.getElementById('player');
+
+    document.addEventListener('click', function (e) {
+        if (e.target.tagName !== 'TD') return;
+
+        // Берём номер строки
+        const rowNumber = e.target.parentElement.rowIndex;
+        console.log('Клик по строке:', rowNumber);
+
+        // Ставим src на существующий <audio>, а не создаём new Audio()
+        player.src = `smpla/${rowNumber}.m4a`;
+        player.currentTime = 0;
+
+        player.play().catch(err => {
+            console.error('Ошибка воспроизведения:', err.name, err.message);
+        });
+    });
 
 rows=document.getElementById("bla").rows
 

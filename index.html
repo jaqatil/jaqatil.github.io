@@ -42,7 +42,7 @@ h1#basmala{text-align:right;color:hotpink}
 
 
 
-<p align=center><a href="#z" style="text-decoration:none;font-size:200%">&darr;</a><br><br>
+<p align=center><a href="#z" id=zz style="text-decoration:none;font-size:200%">&darr;</a><br><br>
 
 <table id="bla" border=1 cellspacing=0>
 <tr><td id="num" onclick="numerateRows()">#
@@ -199,7 +199,7 @@ h1#basmala{text-align:right;color:hotpink}
 <td>lja<td>6<td>maljasmafuqiduqatlutau<td>Я 6-7 часов ждал тебя<br>Six or seven hours I waited for you
 
 <tr><td id="num">
-<td>sma<td>7<td>xaiprakniduqantasmasidulajidiu<td>Они завтра в 17 часов будут здесь<br>Tomorrow at 17 o'clock they will be here
+<td>sma<td>7<td>xaiprakniduqantasmasedulajidiu<td>Они завтра в 17 часов будут здесь<br>Tomorrow at 17 o'clock they will be here
 
 <tr><td id="num">
 <td>pra<td>перед, после<br>front, after<td>mablatluxackaknipriduu<td>Я трахну её через 8 дней<br>I'll fuck her in 8 days
@@ -309,15 +309,14 @@ h1#basmala{text-align:right;color:hotpink}
 <tr><td id="num">
 <td>sau<td>дорога<br>road<td>sau.ul<td><br>
 
-
-</table>
-
-
-
 <tr><td id="num">
 <td><td><br><td><td><br>
 
-<div id=z align=center><br><br>
+</table>
+
+<p align=center><a href="#zz" id=z style="text-decoration:none;font-size:200%">&uarr;</a>
+
+<div align=center><br><br>
 <button onclick="random()" style="font-size:120%"> &nbsp; Случайный текст | Random text &nbsp; </button>&nbsp;
 <textarea rows="1" cols="4" id="random" wrap="hard" style="font-size:200%">400</textarea><br><br>
 <p><b>Проверка синтаксиса | Syntax check</b>
@@ -396,7 +395,7 @@ function shuffleArray(arr) {
 <p><img src=smpla.jpg>
 
 <script>
-	
+
 document.addEventListener('click', function(e)
 {
 	if(e.target.tagName==='TD')
@@ -405,7 +404,6 @@ document.addEventListener('click', function(e)
        	new Audio(`smpla/${rowNumber}.m4a`).play();
 	}
 });
-
 
 rows=document.getElementById("bla").rows
 
@@ -499,7 +497,6 @@ function rs(length)
       consonant=(c!='a')
       if(w<=o&&w>0){continue}
      
-    
       result +=c;
       counter+=1;
       

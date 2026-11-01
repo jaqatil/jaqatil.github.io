@@ -10,12 +10,13 @@ table td:nth-child(2){background-color:#f2f2f2;}
 <body>
 
 <table border=1 cellspacing=0>
-<tr><th colspan=2>Snjaxki
+<h2>Click on title to listen</h2>
+<tr><th colspan=2>snjaxki
 <tr><td>masnjaxkutau<td>Моя белая кошка ты.
 <tr><td>nharkasupau<td>Ноги и руки малы.
 <tr><td>takwigrakriu<td>Твоя голова очень хорошая.
 <tr><td>malbitagliu<td>Я люблю твои глаза.
-<tr><th colspan=2>Psambi
+<tr><th colspan=2>psambi
 <tr><td>malaqidublatlutau<td>Я сейчас трахну тебя.
 <tr><td>psambimapsambu<td>Сучка. Моя сучка.
 <tr><td>mazablutartidukrau<td>Мой большой член в твоём рту хорош.
@@ -36,4 +37,14 @@ table td:nth-child(2){background-color:#f2f2f2;}
 <tr><td>mablitablidugrakriu<td>Мой член в твоей пизде очень хорош.
 <tr><td>psambimapsambu<td>Сучка, моя сучка.
 </table>
+
+<script>
+let cur;
+document.querySelectorAll('th').forEach(c => c.onclick = () => {
+  if (cur) cur.pause();
+  cur = new Audio(c.innerText + '.mp3');
+  cur.play();
+});
+</script>
+</html>>
 </html>
